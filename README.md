@@ -12,4 +12,6 @@ Example
 
 Comparison
 
+![plugin is on the top](https://github.com/zrixoh/EVR-RC.NET-Symbol-Parser/blob/main/images/comparison2.png?raw=true)
+
 ![Plugin is on the right](https://github.com/zrixoh/EVR-RC.NET-Symbol-Parser/blob/main/images/comparison.png?raw=true)
