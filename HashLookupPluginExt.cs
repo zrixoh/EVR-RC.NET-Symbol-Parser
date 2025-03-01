@@ -1,4 +1,4 @@
-﻿using ReClassNET.Plugins;
+using ReClassNET.Plugins;
 using ReClassNET.Logger;
 using ReClassNET.Nodes;
 using ReClassNET.Memory;
@@ -208,20 +208,24 @@ namespace HashLookupPlugin
                 //continue;
                 bool isHash = HashLookupPluginExt.Hashes.TryGetValue(memory.ReadUInt64(item.Offset), out string str);
                 bool isStringHashNode = typee == typeof(StringHashNode);
+                StringHashNode itemAsStringHashNode = new StringHashNode();
                 if (isStringHashNode)
                 {
-                    StringHashNode tempNode = (StringHashNode)item;
-                    string oldStringHash = tempNode.hashedString;
+                    itemAsStringHashNode = (StringHashNode)item;
+                    string oldStringHash = itemAsStringHashNode.hashedString;
                     if (oldStringHash != str)
                     {
                         Debug.WriteLine($"HashString \"{oldStringHash}\" changed to \"{str}\"");
                         var newNode = new StringHashNode();
                         newNode.hashedString = str;
                         newNode.CopyFromNode(item);
+                        newNode.autoCreated = true;
                         addToReplace(item, newNode, parNode);
                         continue;
                     }
                 }
+
+
                 if (isHash && !isStringHashNode)
                 {
                     if (typee != typeof(Hex64Node) || HashLookupPluginExt.useComments)
@@ -233,6 +237,7 @@ namespace HashLookupPlugin
                     var newNode = new StringHashNode();
                     newNode.hashedString = str;
                     newNode.CopyFromNode(item);
+                    newNode.autoCreated = true;
                     addToReplace(item, newNode, parNode);
 
 
@@ -260,7 +265,7 @@ namespace HashLookupPlugin
                 }
                 else if (isStringHashNode)
                 {
-                    if (HashLookupPluginExt.useComments)
+                    if (HashLookupPluginExt.useComments && itemAsStringHashNode.autoCreated)
                     {
                         var newNode = new Hex64Node();
                         newNode.CopyFromNode(item);
@@ -291,6 +296,8 @@ namespace HashLookupPlugin
     public class StringHashNode : BaseHexNode
     {
         private readonly MemoryBuffer memory = new MemoryBuffer();
+
+        public bool autoCreated;
 
         public override int MemorySize => sizeof(ulong);
 
