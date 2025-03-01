@@ -1,8 +1,10 @@
 # EVR-RC.NET-Symbol-Parser
-Plugin for ReClass.NET that checks and comments on nodes with Echo VR hashed strings
+### Symbols are only updated when a new base node with a pointer is found(it'll have a "->" next to it)
+Plugin for ReClass.NET that checks and comments on nodes with Echo VR hashed strings, also provides a custom node ![customnode](https://github.com/zrixoh/EVR-RC.NET-Symbol-Parser/blob/main/images/customnode.png?raw=true)
+
 
 example
-![example](https://github.com/user-attachments/assets/fbe71fe0-cc91-480a-b929-629de398b76b)
+![example](https://github.com/zrixoh/EVR-RC.NET-Symbol-Parser/blob/main/images/example.png?raw=true)
 
 comparison
-![Plugin on right](https://github.com/zrixoh/EVR-RC.NET-Symbol-Parser/blob/main/images/comparison.png)
+![Plugin is on the right](https://github.com/zrixoh/EVR-RC.NET-Symbol-Parser/blob/main/images/comparison.png?raw=true)
