@@ -15,8 +15,8 @@ If you want to compile this plugin just clone the repository and create the foll
 ```
 ..\ReClass.NET\
 ..\ReClass.NET\ReClass.NET\ReClass.NET.csproj
-..\ReClass.NET-FrostbitePlugin
-..\ReClass.NET-FrostbitePlugin\FrostbitePlugin.csproj
+..\ReClass.NET-HashLookupPlugin
+..\ReClass.NET-HashLookupPlugin\FrostbitePlugin.csproj
 ```
 
 Custom node
